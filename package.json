@@ -1,0 +1,23 @@
+{
+  "name": "scss-full",
+  "version": "1.0.0",
+  "description": "Sass,Less,Styles,Scss are some preprocessors built for css. It adds an additional steps before css. A language on top of css such as scss or sass that will generate css code.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "style-loader": "^0.19.0",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.6.0",
+    "sass-loader": "^6.0.6"
+  }
+}
