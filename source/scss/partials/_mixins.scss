@@ -1,0 +1,13 @@
+@import "variables";
+
+@mixin warning {
+  background: $warning-color;
+  color: white;
+}
+
+@mixin google-font($font) {
+  $font: unquote($font);
+  @import url(https://fonts.googleapis.com/css?family=#{$font});
+}
+
+

@@ -1,3 +1,22 @@
+@import "partials/variables";
+@import "partials/mixins";
+
+@include google-font("Barlow");
+
 body {
   background: #eee;
+  padding: $size;
+  p {
+    color: $font-color;
+    border: 3px solid red;
+    font: {
+      family: "Barlow";
+    }
+    padding: 10px;
+  }
+}
+
+.warning {
+  @include warning;
+  padding: 20px;
 }
