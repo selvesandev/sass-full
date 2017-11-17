@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Barlow);body {
   background: #eee;
-  padding: 20px; }
+  padding: 20px;
+  font-size: 1.125em; }
   body p {
     color: #000;
     border: 3px solid red;
@@ -11,3 +12,23 @@
   background: red;
   color: white;
   padding: 20px; }
+
+.box {
+  padding: 20px;
+  min-height: 100px;
+  background: red;
+  max-width: 1200px;
+  margin: 20px auto; }
+  @media all and (max-width: 800px) and (min-width: 600px) {
+    .box {
+      background: blue; } }
+  @media all and (max-width: 601px) {
+    .box {
+      background: orange; } }
+
+.error, .critical-error {
+  color: red; }
+
+.critical-error {
+  border: 1px solid red;
+  font-weight: bold; }

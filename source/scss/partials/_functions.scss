@@ -1,0 +1,7 @@
+@function sum($left,$right) {
+  @return $left + $right;
+}
+
+@function emValue($pixel,$context:16px) {
+  @return ($pixel/$context)*1em;
+}

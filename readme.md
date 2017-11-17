@@ -2,14 +2,14 @@
 Sass,Less,Styles,Scss are some preprocessors built for css. It adds an additional steps before css. A language on top of css
 such as scss or sass that will generate css code.
 
-* Why Use Preprocessor ?
+#### Why Use Preprocessor ?
     * Variables
     * Nesting
     * Mixins
     * Automatic Vendor Prefixing
     
 
-### Sass Vs Scss    
+### Sass VS Scss    
 ##### Sass  
 `Syntactically awesome style-sheet` an original language that came up with this extra capabilities
 on top of css to write better and reusable codes.   
@@ -263,3 +263,274 @@ body{
 
 
 ### Media Queries
+All the media queries that you use in the css are all valid in scss or sass.
+Media queries in scss provide us more advantages. We can use nested media queries in scss so that you do not have to select the item each time. eg:-
+```
+
+.box {
+  padding: 20px;
+  min-height: 100px;
+  background: red;
+  max-width: 1200px;
+  margin: 20px auto;
+
+  @media all and (max-width: 800px) and (min-width: 600px) {
+    background: blue;
+  }
+
+  @media all and (max-width: 601px){
+    background: orange;
+  }
+
+}
+
+```
+
+
+##### Flexible media query using mixin
+using mixin to handle all the typical media query because usually we are going to handle the same size of media query.
+
+```
+//Declare
+
+@mixin tiny-screen() {
+  @media only screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin small-screen() {
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin medium-screen() {
+  @media only screen and (max-width: 680px) {
+    @content;
+  }
+}
+
+@mixin large-screen() {
+  @media only screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+
+//Use
+.box{
+    @include large-screen{
+        font-size:125%;
+    }
+}
+
+```
+
+
+### Operators
+
+
+##### Arithmetic
+###### With measurements
+```
+3px + 4px;
+4px - 2px;
+$size:2px * 5px;
+$size/6px;
+
+------------------
+1in - 5px;
+
+2em - 8px; //will not work because em and px are not compatible
+(8px/4px); // when dividing keep in brackets or keep value in variable.
+```
+
+###### With colors
+
+```
+#333+#777;
+#090807 - #030201;//060606
+```
+
+
+### Functions
+Some predefined function in css
+```
+rgb();
+rgba();
+hsl();//hue saturation and lightning.
+linear-gradient()
+calc()
+```
+Function have a name, takes value as an arguments and returns value.
+
+##### Sass Built in functions
+* `darken($color,%)`
+```
+a{
+    color:$link-color;
+    &:hover{
+        color:darken($link-color,15%); 
+    }
+}
+
+```
+* lighten()
+```
+@mixin warning {
+    background-color:orange;
+    color:#fff;
+    &:hover{
+        background-color:lighten(orange,10%)
+    }
+}
+
+button {
+    @include warning;
+}
+
+```
+* Opacify();
+* transparentize();
+
+
+##### Sass User Defined functions
+
+```
+@function sum($left,$right){
+    @return $left + $right;
+}
+
+//Function to convert pixel into em.
+@function emValue($pixel,$context:16px){
+    @return ($pixel/$content)*1em;
+}
+
+//Function to calculate the width of the single column in a grid layout.
+@function col-width($columns:12,$page-width:100%,$gat:1%){
+    @return ($page-width - $gap*($columns-1));
+}
+
+//Use
+$col: col-width($columns:8)
+
+```
+
+
+### Inheritance.
+Here is a example of inheritance  
+you have a css class with property say.
+```
+.error{
+    color:red;
+}
+```
+
+you have another piece of css 
+```
+.critical-error{
+    border:1px solid red;
+    font-weight:bold;
+}
+```
+
+What we want here is in our `critical-error` we also 
+want the properties of `.error` class. We can do so by extending the .error class
+
+```
+.critical-error{
+    @extend .error;
+    border:1px solid red;
+    font-weight:bold;
+}
+
+```
+
+This can also be a psuedo and multiple extend.
+
+```
+.critical-error{
+    @extend .error:hover;
+    @extend .headen.large;//both header and .large class
+    border:1px solid red;
+    font-weight:bold;
+}
+
+```
+
+### Advanced rule for using @extend directive in sass.
+
+* Cannot have selector sequences.
+```
+.cta-button{
+    @extend .warning .foo; //error
+}
+```
+* Rules related to media query. (we cannot extend from selector
+which is outside the media query from inside the media query)
+
+```
+@media screen{
+    .super{
+        @extend .error; // error;
+    }
+}
+```
+you can only use selector that is declared inside the media query. 
+
+**Note** but you can use the method class declared inside of MQ outside of the MQ.
+
+
+* Another Feature (%) reference
+```
+%className{
+    color:red;
+}
+
+.error{
+    @extend %className;
+}
+``` 
+Will compile the css to.
+
+```
+.error{
+    color:red;
+}
+```
+
+Basically it will not create it's own class. But it will simple copy and paste the code only i.e the list of property and value
+
+
+* !optional flag
+```
+.test{
+    @extend .foo; // will result in error since the .foo class is not defined
+}
+```
+
+```
+.test{
+    @extend .foo!optional; //will extend the .foo class if it is declared will ignore if it doesn't
+}
+```
+
+
+
+### @extend VS @mixin
+
+
+
+
+
+### Branch
+A branch allows you to create a variation of your code. let say it allows you to 
+create a another copy for eg: say you are writing some complicated feature in the new branch
+and then you merge the new branch to the master back together.
+
+
+```
+git branch project
+
+```

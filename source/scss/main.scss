@@ -1,5 +1,6 @@
 @import "partials/variables";
 @import "partials/mixins";
+@import "partials/functions";
 
 @include google-font("Barlow");
 
@@ -14,9 +15,39 @@ body {
     }
     padding: 10px;
   }
+  font-size: emValue(18px);
 }
 
 .warning {
   @include warning;
   padding: 20px;
 }
+
+.box {
+  padding: 20px;
+  min-height: 100px;
+  background: red;
+  max-width: 1200px;
+  margin: 20px auto;
+
+  @media all and (max-width: 800px) and (min-width: 600px) {
+    background: blue;
+  }
+
+  @media all and (max-width: 601px) {
+    background: orange;
+  }
+
+}
+
+.error {
+ color:red;
+}
+
+.critical-error {
+  @extend .error;
+  border: 1px solid red;
+  font-weight: bold;
+}
+
+
