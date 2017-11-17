@@ -544,5 +544,10 @@ Switch the current branch`(master)` to `project`
 ```
 git add .
 git commit -m "commited code"
+```
+code commited for the new branch.
 
 ```
+git checkout master
+```
+
