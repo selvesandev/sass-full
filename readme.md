@@ -529,13 +529,37 @@ A branch allows you to create a variation of your code. let say it allows you to
 create a another copy for eg: say you are writing some complicated feature in the new branch
 and then you merge the new branch to the master back together.
 
-
+1)
 ```
 git branch project
 ```
+Branch `project` created.
 
 
-**Merge the branch to master and delete it**
+2)
+```
+git checkout project
+```
+Switch the current branch`(master)` to `project`
+
+
+3)
+```
+git add .
+git commit -m "commited code"
+```
+code commited for the new branch.
+
+4)
+```
+git checkout master
+```
+Switch to a new branch
+
+5)
 ```
 git merge project
 ```
+Merge the branch to master
+
+
