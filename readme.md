@@ -532,5 +532,17 @@ and then you merge the new branch to the master back together.
 
 ```
 git branch project
+```
+Branch `project` created.
+
+
+```
+git checkout project
+```
+Switch the current branch`(master)` to `project`
+
+```
+git add .
+git commit -m "commited code"
 
 ```
