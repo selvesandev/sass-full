@@ -532,5 +532,10 @@ and then you merge the new branch to the master back together.
 
 ```
 git branch project
+```
 
+
+**Merge the branch to master and delete it**
+```
+git merge project
 ```
