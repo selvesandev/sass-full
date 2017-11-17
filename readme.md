@@ -572,4 +572,17 @@ Delete the branch `project`
 
 7) 
 
+```
+
+git branch new-branch
+git checkout new-branch
+//do some changes in the new branch
+
+git add .
+git commit -m "changes in the new branch"
+git push origin new-branch
+
+```
+
+Push branch to remote repo.
 
