@@ -563,3 +563,13 @@ git merge project
 Merge the branch to master
 
 
+6)
+```
+git branch -d project
+```
+Delete the branch `project`
+
+
+7) 
+
+
