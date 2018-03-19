@@ -583,6 +583,10 @@ git commit -m "changes in the new branch"
 git push origin new-branch
 
 ```
-
-Push branch to remote repo.
-
+8) Push branch to remote repo.
+make some changes and ...
+```
+git add .
+git commit -m "push to remote repo"
+git push origin <branch_name>
+```
